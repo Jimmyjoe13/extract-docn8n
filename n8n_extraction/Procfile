@@ -1,0 +1,1 @@
+web: python scripts/n8n_bulk_text_dump_updated.py --categories langchain_agent,workflows,other,code --workers 20 --output ./output --sitemap https://docs.n8n.io/sitemap.xml
