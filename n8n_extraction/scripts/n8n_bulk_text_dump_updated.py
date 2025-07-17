@@ -213,7 +213,7 @@ async def main():
             tasks.append(process_url(session, (url_info['url'], url_info['category']), output_dir, stats))
 
         logging.info("Extraction en cours...")
-        await tqdm.gather(*tasks, max_concurrent_tasks=args.workers)
+        await tqdm.gather(*tasks)
 
         logging.info("\n=== Résultats de l'extraction ===")
         logging.info(f"URLs traitées avec succès: {stats['success']}")
