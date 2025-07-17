@@ -188,14 +188,27 @@ async def main():
         if not sitemap_content:
             logging.error("Could not fetch sitemap. Exiting.")
             return
+        
+        logging.info(f"Sitemap content fetched (first 500 chars): {sitemap_content[:500]}")
 
         all_urls = parse_sitemap_xml(sitemap_content)
         
+        if not all_urls:
+            logging.error("No URLs parsed from sitemap. Exiting.")
+            return
+        
+        logging.info(f"Total URLs parsed from sitemap: {len(all_urls)}")
+        logging.info(f"First 5 parsed URLs: {all_urls[:5]}")
+
         categorized_urls = []
         for url in all_urls:
             category, priority = categorize_url(url)
             if category in filtered_categories: # Only include URLs from selected categories
                 categorized_urls.append({'url': url, 'category': category, 'priority': priority})
+        
+        if not categorized_urls:
+            logging.error("No URLs matched selected categories after parsing. Check patterns or categories.")
+            return
 
         # Sort URLs by priority (lower number = higher priority)
         categorized_urls.sort(key=lambda x: x['priority'])
