@@ -87,8 +87,11 @@ async def fetch_sitemap(session, sitemap_url):
 def parse_sitemap_xml(xml_content):
     urls = []
     try:
+        # Définir l'espace de noms pour XPath
+        ns = {'sitemap': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
         root = etree.fromstring(xml_content.encode('utf-8'))
-        for loc in root.xpath('//loc'):
+        # Utiliser l'espace de noms dans la requête XPath
+        for loc in root.xpath('//sitemap:loc', namespaces=ns):
             urls.append(loc.text)
     except etree.XMLSyntaxError as e:
         logging.error(f"Error parsing sitemap XML: {e}")
