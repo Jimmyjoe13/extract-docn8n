@@ -1,0 +1,6 @@
+Extraction terminée: 2025-07-18 14:35:16
+Total URLs: 832
+Succès: 825
+Échecs: 0
+Ignorés: 7
+Taux de succès: 99.2%

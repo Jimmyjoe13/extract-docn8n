@@ -1,0 +1,27 @@
+{
+  "total_urls": 832,
+  "files_extracted": 832,
+  "success_rate": 100.0,
+  "total_size_mb": 2327.61,
+  "extraction_time": "2025-07-18 14:37:15",
+  "batches_completed": {
+    "batch_02": "6/6",
+    "batch_03": "50/50",
+    "batch_04": "50/50",
+    "batch_05": "50/50",
+    "batch_06": "50/50",
+    "batch_07": "50/50",
+    "batch_08": "50/50",
+    "batch_09": "50/50",
+    "batch_10": "50/50",
+    "batch_11": "50/50",
+    "batch_12": "50/50",
+    "batch_13": "50/50",
+    "batch_14": "50/50",
+    "batch_15": "50/50",
+    "batch_16": "50/50",
+    "batch_17": "50/50",
+    "batch_18": "50/50",
+    "batch_19": "26/26"
+  }
+}

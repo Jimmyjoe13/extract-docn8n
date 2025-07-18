@@ -15,6 +15,79 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Définition des catégories et de leurs patterns regex avec priorités
 CATEGORIES = {
+    'api': {
+        'patterns': [
+            r'/api/',
+            r'/api-reference/',
+            r'/authentication/',
+            r'/pagination/',
+            r'/using-api-playground/',
+        ],
+        'priority': 1
+    },
+    'courses': {
+        'patterns': [r'/courses/'],
+        'priority': 1
+    },
+    'user_management': {
+        'patterns': [
+            r'/user-management/',
+            r'/rbac/',
+            r'/saml/',
+            r'/sso/',
+            r'/2fa/',
+            r'/projects/',
+            r'/permissions/',
+        ],
+        'priority': 1
+    },
+    'hosting': {
+        'patterns': [
+            r'/hosting/',
+            r'/configuration/',
+            r'/architecture/',
+            r'/environment-variables/',
+            r'/installation/',
+            r'/docker/',
+            r'/npm/',
+            r'/scaling/',
+            r'/performance/',
+            r'/security/',
+            r'/monitoring/',
+            r'/aws/',
+            r'/azure/',
+            r'/gcp/',
+        ],
+        'priority': 1
+    },
+    'non_categorized': {
+        'patterns': [
+            r'/credentials/',
+            r'/embed/',
+            r'/flow-logic/',
+            r'/manage-cloud/', # Renommé de 'cloud' pour être plus précis
+            r'/source-control-environments/',
+            r'/privacy-security/',
+            r'/release-notes/', # Ajouté car souvent non catégorisé
+            r'/insights/', # Ajouté
+            r'/video-courses/', # Ajouté
+            r'/help-community/', # Ajouté
+            r'/choose-n8n/', # Ajouté
+            r'/1-0-migration-checklist/', # Ajouté
+            r'/advanced-ai/evaluations/', # Ajouté
+            r'/advanced-ai/examples/', # Ajouté
+            r'/advanced-ai/intro-tutorial/', # Ajouté
+            r'/advanced-ai/rag-in-n8n/', # Ajouté
+            r'/advanced-ai/', # Ajouté
+            r'/data/', # Ajouté
+            r'/log-streaming/', # Ajouté
+            r'/license-key/', # Ajouté
+            r'/glossary/', # Déjà présent dans 'other', mais déplacé ici
+            r'/guides/', # Déjà présent dans 'other', mais déplacé ici
+            r'/documentation/', # Déjà présent dans 'other', mais déplacé ici
+        ],
+        'priority': 1
+    },
     'langchain_agent': {
         'patterns': [
             r'/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain\.agent',
@@ -26,31 +99,23 @@ CATEGORIES = {
             r'/integrations/builtin/cluster-nodes/sub-nodes/.*langchain',
             r'/integrations/builtin/core-nodes/n8n-nodes-langchain',
         ],
-        'priority': 1
+        'priority': 2 # Priorité ajustée
     },
     'workflows': {
         'patterns': [r'/workflows/'],
-        'priority': 2
-    },
-    'other': {
-        'patterns': [r'/glossary/', r'/guides/', r'/documentation/'],
-        'priority': 3
+        'priority': 3 # Priorité ajustée
     },
     'code': {
         'patterns': [r'/code/', r'/expressions/', r'/transformations/'],
-        'priority': 4
-    },
-    'hosting': {
-        'patterns': [r'/hosting/', r'/configuration/'],
-        'priority': 5
-    },
-    'user_management': {
-        'patterns': [r'/user-management/', r'/rbac/'],
-        'priority': 6
+        'priority': 4 # Priorité ajustée
     },
     'integrations': {
         'patterns': [r'/integrations/'],
-        'priority': 7
+        'priority': 5 # Priorité ajustée
+    },
+    'other': { # Cette catégorie sera moins utilisée car 'non_categorized' prend le relais
+        'patterns': [], # Vide ou patterns très génériques si nécessaire
+        'priority': 99 # Priorité très basse pour les URLs non capturées par les autres
     }
 }
 
